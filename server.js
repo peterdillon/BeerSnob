@@ -9,6 +9,7 @@ var methodOverride = require('method-override'); // simulate DELETE and PUT (exp
 // configuration =================
 
 mongoose.connect('mongodb://fingermaster:dwjbw1715-1@apollo.modulusmongo.net:27017/eDisu8hi');     // connect to mongoDB database on modulus.io
+//mongoose.connect('mongodb://node:nodeuser@mongo.onmodulus.net:27017/uwO3mypu'); 
 
 app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
 app.use(morgan('dev'));                                         // log every request to the console
@@ -19,8 +20,12 @@ app.use(methodOverride());
 
 
 // define model =================
+// module.exports = mongoose.model('Todo', {
+// 	text : {type : String, default: ''}
+// });
+
 var Todo = mongoose.model('Todo', {
-    text : String
+    text : {type : String, default: ''}
 });
 
 // routes ======================================================================
@@ -78,7 +83,6 @@ var Todo = mongoose.model('Todo', {
         });
     });
 
-
 // application -------------------------------------------------------------
 app.get('*', function(req, res) {
     res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
@@ -88,6 +92,5 @@ app.get('*', function(req, res) {
 // listen (start app with node server.js) ======================================
 app.listen(8080);
 console.log("App listening on port 8080");
-
 
 
