@@ -2,7 +2,7 @@
   "name": "BeerSnap!",
   "version": "0.1.0",
   "author": "Peter Dillon <fingermaster@gmail.com>",
-  "homepage": "Coming soon.",
+  "homepage": "https://github.com/fingermaster/BeerSnap",
   "description": "Find small craft brews near my location.",
   "readme": "Full stack project.",
   "license": "MIT",
@@ -13,12 +13,15 @@
   "keywords": [
     "web"
   ],
-  "main"         : "server.js",
-  "dependencies" : {
-    "express"    : "~4.7.2",
-    "mongoose"   : "~3.6.2",
-    "morgan"     : "~1.2.2",
+  "main": "server.js",
+  "dependencies": {
+    "express": "~4.7.2",
+    "mongoose": "4.1.3",
+    "morgan": "~1.2.2",
     "body-parser": "~1.5.2",
     "method-override": "~2.1.2"
-    }
+  },
+  "devDependencies": {
+    "mongoose": "^3.6.20"
+  }
 }

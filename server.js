@@ -8,8 +8,13 @@ var methodOverride = require('method-override'); // simulate DELETE and PUT (exp
 
 // configuration =================
 
-mongoose.connect('mongodb://fingermaster:dwjbw1715-1@apollo.modulusmongo.net:27017/eDisu8hi');     // connect to mongoDB database on modulus.io
-//mongoose.connect('mongodb://node:nodeuser@mongo.onmodulus.net:27017/uwO3mypu'); 
+
+
+mongoose.connect('mongodb://fingermaster:dwjbw17151@apollo.modulusmongo.net:27017/esazO3hy');     // connect to mongoDB database on modulus.io
+// mongoose.connect('mongodb://node:nodeuser@mongo.onmodulus.net:27017/uwO3mypu'); 
+// console.log('Running mongoose version %s', mongoose.version);
+// mongoose.connect('	mongodb://localhost:8080');
+
 
 app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
 app.use(morgan('dev'));                                         // log every request to the console
@@ -25,8 +30,8 @@ app.use(methodOverride());
 // });
 
 var Todo = mongoose.model('Todo', {
-    text : {type : String, default: ''}
-});
+        text : String
+    });
 
 // routes ======================================================================
 
