@@ -1,17 +1,22 @@
 {
-  "name": "BeerSnap!",
+  "name": "BeerSnob!",
   "version": "0.1.0",
   "author": "Peter Dillon <fingermaster@gmail.com>",
-  "homepage": "https://github.com/fingermaster/BeerSnap",
+  "homepage": "https://github.com/fingermaster/BeerSnob",
   "description": "Find small craft brews near my location.",
-  "readme": "Full stack project.",
+  "readme": "Find local craft brews near you.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/fingermaster/BeerSnob!"
   },
   "keywords": [
-    "web"
+    "web app",
+    "web application",
+    "postcss",
+    "grunt",
+    "beer",
+    "find local craft brews"
   ],
   "main": "server.js",
   "dependencies": {
@@ -21,7 +26,4 @@
     "body-parser": "~1.5.2",
     "method-override": "~2.1.2"
   },
-  "devDependencies": {
-    "mongoose": "^3.6.20"
-  }
 }

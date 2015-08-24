@@ -2,69 +2,70 @@
 <!doctype html>
 
 <!-- ASSIGN OUR ANGULAR MODULE -->
-<html ng-app="scotchTodo">
+<html ng-app="createBrewery">
 <head>
-    <!-- META -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BeerSnob!</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href='http://fonts.googleapis.com/css?family=Comfortaa:400' rel='stylesheet' type='text/css'>
 
-    <title>BeerSnap!</title>
-
-    <!-- SCROLLS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
-    <style>
-        html                    { overflow-y:scroll; }
-        body                    { padding-top:50px; }
-        #todo-list              { margin-bottom:30px; }
-    </style>
-
-    <!-- SPELLS -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="js/geolocation.js"></script>
+    <script src="js/isNumber.js"></script>
     <script src="core.js"></script>
 
+
+<script type="text/ng-template" id="/search.html">
+    Search: <input type="text" ng-model="search.zipcode">
+    <ul>
+      <li ng-repeat="brewery in breweries | filter: search">
+        <div></div>
+      </li>
+    </ul>
+  </script>
+
 </head>
-<!-- SET THE CONTROLLER AND GET ALL TODOS -->
 <body ng-controller="mainController">
-    <div class="container">
 
-        <!-- HEADER AND TODO COUNT -->
-        <div class="jumbotron text-center">
-            <h1>BeerSnap!<span class="label label-info">{{ todos.length }}</span></h1>
-            <h3>An application that finds beer for you based on location, mood, season and weather.</h3>
+<section>
+    <h1>BeerSnob!</h1>
+    <h3>An application that suggests beer based on proximity. <br> Mood, season and weather are coming soon.</h3>
+    <h5>There are currently {{ breweries.length }} breweries in this db.</h5>
+
+    <form>
+        <span><label>Brewery Name</label></span>
+        <span><input type="text" placeholder="Name" ng-model="formData.name"></span>
+        <span><label>Brewery Zipcode</label></span>
+        <span><input type="text" id="zip" ng-model="formData.zipcode" maxlength="5" onkeypress="return isNumber(event)"></span>
+        <span>&nbsp;</span>
+        <span><button type="submit" ng-click="createBrewery()">Add Brewery</button></span>
+    </form>
+
+    <div id="brewery-list">
+        <div ng-repeat="brewery in breweries.slice().reverse()">
+            <span  title="Checking deletes this immediately!">
+                <input type="checkbox" ng-click="deleteBrewery(brewery._id)"> {{ brewery.name }} 
+            </span>
+            <span> {{ brewery.zipcode }} </span>
         </div>
-
-        <!-- TODO LIST -->
-        <div id="todo-list" class="row">
-            <div class="col-sm-4 col-sm-offset-4">
-
-                <!-- LOOP OVER THE TODOS IN $scope.todos -->
-                <div class="checkbox" ng-repeat="todo in todos">
-                    <label>
-                        <input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
-                    </label>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- FORM TO CREATE TODOS -->
-        <div id="todo-form" class="row">
-            <div class="col-sm-8 col-sm-offset-2 text-center">
-                <form>
-                    <div class="form-group">
-
-                        <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-                        <input type="text" class="form-control input-lg text-center" placeholder="Find the right brew for you!" ng-model="formData.text">
-                    </div>
-
-                    <!-- createToDo() WILL CREATE NEW TODOS -->
-                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Find Beer!</button>
-                </form>
-            </div>
-        </div>
-
     </div>
+</section>
+
+<section>
+  <span>Latitide:</span>
+  <span id="startLat"></span>
+  <span>Longitude:</span>
+  <span id="startLon"></span>
+  <span>Date:</span>
+  <span id="dateCode"></span>
+  <span>Time:</span>
+  <span id="timeCode"></span>
+  <span>Accuracy:</span>
+  <span id="accuracy"></span>
+  <span>Error:</span>
+  <span id="errMsg">None</span>
+</section>
 
 </body>
 </html>

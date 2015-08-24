@@ -1,13 +1,36 @@
-# BeerSnap!
+# BeerSnob!
 Find small craft brews near my location
 
 ### Dependencies
 
-1. nodejs
-2. npm
-3. express
-4. morgan
-5. mongoose
-6. body-parser
-7. modulus db
+nodejs
+npm
+express
+morgan
+mongoose
+body-parser
+modulus db
+autoprefixer-core
+cssnano
+grunt
+grunt-contrib-concat
+grunt-contrib-jshint
+grunt-contrib-uglify"
+grunt-grunticon
+grunt-postcss
+grunt-postcss-import
+grunt-serve
+load-grunt-tasks
+npm
+pixrem
+postcss-center
+postcss-color-function
+postcss-discard-comments
+postcss-font-magician
+postcss-import
+postcss-merge-rules
+postcss-nested
+postcss-simple-extend
+postcss-simple-vars
+time-grunt
 
