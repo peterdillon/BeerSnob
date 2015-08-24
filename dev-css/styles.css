@@ -1,0 +1,57 @@
+@import "reset";
+@import "vars";
+@import "buttons";
+
+body {
+  background-color: $body-bg;
+  color: $light-gray;
+  font-family: "Comfortaa";
+}
+section {
+  width: 50%;
+  font-size: 0;
+  float: left;
+  padding: 3vh;
+  &:first-child { border-right: 1px solid $med-gray; }
+}
+.form-section {
+  margin-top: 1rem;
+}
+span {
+  padding: .3rem;
+  font-size: 2rem;
+  width: 50%;
+  display: inline-block;
+  &:nth-child(odd) {
+    text-align: right;
+    color: #444;
+  }
+}
+input[type="text"], input[type="number"]  {
+  border-radius: 6px;
+  font-size: 1.5rem;
+  border: 0;
+  width: 100%;
+  appearance: none;
+  background: linear-gradient(180deg, $light-gray, #fff);
+  padding: 6px 10px;
+  outline: 0;
+  box-shadow: inset 1px 1px 1px rgba(0,0,0,0.3);
+}
+
+h1, h2, h3 {
+  font-size: 2rem;
+  line-height: 1.2;
+  color: #999;
+  margin: 1rem 0;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h5 {
+ font-size: 1.1rem;
+ border-bottom: 2px solid $med-gray;
+ padding-bottom: 15px;
+}
+
+#brewery-list{ margin:30px 0; }

@@ -19,12 +19,20 @@ function success(pos) {
   document.getElementById('accuracy').innerHTML = roundAcc + " Meters";
   document.getElementById('dateCode').innerHTML = d.toLocaleString().slice(0, 10);
   document.getElementById('timeCode').innerHTML = t.toLocaleString().slice(10, 25);
-};
+}
 
 /* Error Codes: 1 PERMISSION_DENIED, 2 POSITION_UNAVAILABLE, 3 TIMEOUT */
 function error(err) {
   var geoerror = (err.code == (1, 2, 3) ? "None" : err.message);
   document.getElementById('errMsg').innerHTML = geoerror;
-};
+}
 
 navigator.geolocation.getCurrentPosition(success, error, options);
+ function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}

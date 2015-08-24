@@ -9,37 +9,23 @@
     <title>BeerSnob!</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href='http://fonts.googleapis.com/css?family=Comfortaa:400' rel='stylesheet' type='text/css'>
-
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-    <script src="js/geolocation.js"></script>
-    <script src="js/isNumber.js"></script>
-    <script src="core.js"></script>
-
-
-<script type="text/ng-template" id="/search.html">
-    Search: <input type="text" ng-model="search.zipcode">
-    <ul>
-      <li ng-repeat="brewery in breweries | filter: search">
-        <div></div>
-      </li>
-    </ul>
-  </script>
-
 </head>
 <body ng-controller="mainController">
 
 <section>
     <h1>BeerSnob!</h1>
-    <h3>An application that suggests beer based on proximity. <br> Mood, season and weather are coming soon.</h3>
-    <h5>There are currently {{ breweries.length }} breweries in this db.</h5>
+    <h3>Suggests small craft beer based on your location.</h3>
+    <h5>There are currently {{ breweries.length }} breweries on file.</h5>
 
     <form>
+      <div class="form-section">
         <span><label>Brewery Name</label></span>
         <span><input type="text" placeholder="Name" ng-model="formData.name"></span>
         <span><label>Brewery Zipcode</label></span>
-        <span><input type="text" id="zip" ng-model="formData.zipcode" maxlength="5" onkeypress="return isNumber(event)"></span>
+        <span><input type="text" placeholder="Zipcode" id="zip" ng-model="formData.zipcode" maxlength="5" onkeypress="return isNumber(event)"></span>
         <span>&nbsp;</span>
         <span><button type="submit" ng-click="createBrewery()">Add Brewery</button></span>
+      </div>
     </form>
 
     <div id="brewery-list">
@@ -66,6 +52,10 @@
   <span>Error:</span>
   <span id="errMsg">None</span>
 </section>
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+  <script src="core.js"></script>
+  <script src="js/custom-build.min.js"></script> 
 
 </body>
 </html>
