@@ -27,11 +27,11 @@
         <span><button type="submit" ng-click="createBrewery()">Add Brewery</button></span>
       </div>
     </form>
-
-    <div id="brewery-list">
-        <div ng-repeat="brewery in breweries.slice().reverse()">
+    
+    <div id="brewery-list"> <!--   -->
+        <div ng-repeat="brewery in breweries | orderBy: '-zipcode' | limitTo: 6 | filter:search">
             <span  title="Checking deletes this immediately!">
-                <input type="checkbox" ng-click="deleteBrewery(brewery._id)"> {{ brewery.name }} 
+                <input type="checkbox" ng-click="deleteBrewery(brewery._id)"> {{ brewery.name | uppercase}} 
             </span>
             <span> {{ brewery.zipcode }} </span>
         </div>

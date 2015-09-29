@@ -4,7 +4,3 @@ logs
 
 # Dependency directory
 node_modules
-
-# Has pwd!
-server.js
-server.js
