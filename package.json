@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "author": "Peter Dillon <fingermaster@gmail.com>",
   "homepage": "https://github.com/fingermaster/BeerSnob",
-  "description": "Find small craft brews near my location.",
+  "description": "Find small craft brews near any location.",
   "readme": "Find local craft brews near you.",
   "license": "MIT",
   "repository": {
